@@ -1,0 +1,15 @@
+.button {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: -10px;
+    left: 50%;
+    background-color: orange;
+    padding-block: 18px;
+    padding-inline: 20px;
+    min-width: 180px;
+    color: black;
+}
+
+.button:hover {
+    background-color: rgb(194, 127, 4);
+}

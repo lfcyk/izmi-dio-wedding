@@ -1,0 +1,23 @@
+.imgContainer {
+    position: relative;
+    background-color: gray;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    width: 100vw;
+}
+
+.button {
+    background-color: orange;
+    padding-block: 3px;
+    padding-inline: 20px;
+    color: white;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: rgb(194, 127, 4);
+}

@@ -1,0 +1,21 @@
+.imgContainer {
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+    height: 50vh;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    width: 100vw;
+}
+
+.flower {
+    /* transform: translateY(-10%); */
+}
+
+.collageFrame {
+    position: relative;
+    overflow: hidden;
+}

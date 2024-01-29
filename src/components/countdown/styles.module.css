@@ -1,0 +1,16 @@
+.imgContainer {
+    position: relative;
+    height: 550px;
+    background-color: gray;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    width: 100vw;
+}
+
+.text {
+    color: white;
+}

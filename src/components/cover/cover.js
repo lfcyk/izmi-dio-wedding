@@ -1,13 +1,9 @@
 import Image from "next/image";
 import styles from './styles.module.css'
-import { IoIosSend } from "react-icons/io";
 
 export default function Cover() {
     return (
         <div className={styles.container}>  
-            {/* <h1>
-                asfouihasnjklfn
-            </h1> */}
             <div className={styles.coverPicture}>
                 <Image
                     src="/pictures/BZS01648.jpg"
@@ -50,14 +46,6 @@ export default function Cover() {
                     alt="flower1"
                 />
             </div>
-            <button className={styles.button}>
-                <div className="flex flex-row gap-2 items-center justify-center">
-                    <div className="text-sm">Buka Undangan</div>
-                    <div className="text-xl">
-                        <IoIosSend/>
-                    </div>
-                </div>
-            </button>
         </div>
     )
 }
