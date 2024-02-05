@@ -1,3 +1,13 @@
+@keyframes theWeddingOf {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+
 .button {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -8,6 +18,8 @@
     padding-inline: 20px;
     min-width: 180px;
     color: black;
+
+    animation: 1s ease-in-out 0s 1 theWeddingOf;
 }
 
 .button:hover {

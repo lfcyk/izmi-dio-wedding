@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from './styles.module.css'
+import { motion } from "framer-motion"
 
 export default function Cover() {
     return (
@@ -38,7 +39,8 @@ export default function Cover() {
                     alt="datetime"
                     />
             </div>
-            <div className={styles.flower1}>
+            <div
+                className={styles.flower1}>
                 <Image
                     src="/asset/buttonflower.png"
                     height={100}
