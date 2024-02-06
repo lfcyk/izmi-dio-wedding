@@ -57,8 +57,8 @@ export default function Welcome() {
                     
                     <div className='mt-14'>
                     <motion.div
-                            initial={{ opacity: 0, x: -200 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: -200 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             transition={{ ease: "easeOut", duration: 2 }}
                             >
 
@@ -72,7 +72,7 @@ export default function Welcome() {
                             />
                     </motion.div>
                     <motion.div
-                            initial={{ opacity: 0, y: -100 }}
+                            initial={{ opacity: 0, y: -50 }}
                             whileInView={{ opacity: 1, y: 0}}
                             transition={{ ease: "easeOut", duration: 2 }}
                             >
@@ -107,8 +107,8 @@ export default function Welcome() {
                             </div>
                         </div>
                         <motion.div
-                            initial={{ opacity: 0, x: 200 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 200 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             transition={{ ease: "easeOut", duration: 2 }}
                             >
                             <Image

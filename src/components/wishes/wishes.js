@@ -17,7 +17,7 @@ const geraniumFont = localFont({
 
 export default function Wishes(props) {
     const wishes = props.wishes?.toReversed();
-    console.log(wishes);
+
     return (
         <>
             {wishes?.map((pray) => {
@@ -28,10 +28,10 @@ export default function Wishes(props) {
                         transition={{ ease: "easeOut", duration: 2 }}
                         >
 
-                        <div className={`${styles.card} m-7 mx-auto max-w-2xl`}>
-                            <div className={`${geraniumFont.className} text-left px-3`}>from <span className="font-bold">{pray.name}</span></div>
-                            <div className={`${geraniumFont.className} text-left text-xs px-3`}>{format(new Date(), "cccc', 'dd-MM-yyyy' 'HH:mm 'WIB")}</div>
-                            <div className={`${geraniumFont.className} text-2xl text-center p-4`}>{pray.wish}</div>
+                        <div className={`${styles.card} m-7 mx-auto max-w-2xl p-3`}>
+                            <div className={`${geraniumFont.className} text-left px-3`}>from <span className="font-bold text-orange-500">{pray.name}</span></div>
+                            <div className={`${geraniumFont.className} text-left text-xs px-3 text-gray-500`}>{format(new Date(), "cccc', 'dd-MM-yyyy' 'HH:mm 'WIB")}</div>
+                            <div className={`${geraniumFont.className} text-2xl text-center p-4 `}>{pray.wish}</div>
                         </div>
                     </motion.div>
                 )

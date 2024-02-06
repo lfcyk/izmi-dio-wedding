@@ -13,6 +13,13 @@ import ReactAudioPlayer from 'react-audio-player';
 import Wishes from "@/components/wishes/wishes";
 import useSWR from 'swr';
 const fetcher = url => fetch(url).then(r => r.json())
+import localFont from 'next/font/local';
+import Bank from "@/components/bank/bank";
+
+const DKFont = localFont({
+	src: './../../src/fonts/DK Lemon Yellow Sun.otf',
+	display: 'swap',
+})
 
 export default function Home() {
 	const [open, setOpen] = useState(false);
@@ -20,20 +27,6 @@ export default function Home() {
 		setOpen(true);
 	}
 	
-	// useEffect(() => {
-	// 	const fetchPosts = async () => {
-	// 		let res = await fetch("http://localhost:3000/api/getWishes", {
-	// 			method: "GET",
-	// 			headers: {
-	// 			"Content-Type": "application/json",
-	// 			},
-	// 		});
-	// 		let allPosts = await res.json();
-	// 	}
-
-	// 	const posts = fetchPosts();
-	// 	console.log(allPosts);
-	// })
     const { data, error } = useSWR(`/api/getWishes`, fetcher)
 	if(error) {
         return "An Error has occured"
@@ -47,6 +40,7 @@ export default function Home() {
 					<Countdown/>
 					<Detail/>
 					<Collage/>
+					<Bank/>
 					<Prayers/>
 					<Wishes wishes={wishes}/>
 					<ReactAudioPlayer
@@ -60,7 +54,7 @@ export default function Home() {
 					<Cover/>
 					<button className={styles.button} onClick={handleOpen}>
 						<div className="flex flex-row gap-2 items-center justify-center">
-							<div className="text-sm">Buka Undangan</div>
+							<div className={`text-lg ${DKFont.className}`}>Buka Undangan</div>
 							<div className="text-xl">
 								<IoIosSend/>
 							</div>

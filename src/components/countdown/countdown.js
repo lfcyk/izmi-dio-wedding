@@ -22,13 +22,19 @@ const geraniumFont = localFont({
 export default function Countdown() {
     const date = new Date(2024, 1, 18, 8, 0);
     const [time, setTime] = useState(Date.now());
+    const [isClient, setIsClient] = useState(false)
 
     useEffect(() => {
+        setIsClient(true)
         const interval = setInterval(() => setTime(Date.now()), 1000);
         return () => {
             clearInterval(interval);
         };
-    })
+    }, [])
+
+    if(!isClient) {
+        return;
+    }
     return (
         <>
             <div className={styles.imgContainer}>
