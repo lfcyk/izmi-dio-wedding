@@ -11,7 +11,11 @@ export async function POST(req, { params }) {
         "wish": body.wish,
         "date": new Date(),
     }
+    
     let myPost = await db.collection("posts").insertOne(toInsert);
+
+    console.log(myPost);
+    
 
     return new Response(JSON.stringify("allPosts", null, 2), {status: 200})
 }
