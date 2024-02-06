@@ -78,7 +78,7 @@ export default function Prayers() {
                     <form>
                         <div className={`flex flex-col p-3 max-w-96 mx-auto ${geraniumFont.className}`}>
                             <input name="name" placeholder="Name" required className='mb-2' onChange={handleChange}/>
-                            <textarea name="wishes" placeholder="Wishes" onChange={handleChange}/>
+                            <textarea name="wishes" rows="4" placeholder="Wishes" onChange={handleChange}/>
                             <button type="button" className={styles.button} onClick={handleSubmit}>
                                 {showLoader
                                     ?   <ClipLoader color="#FFFFFF" size={10}/>
