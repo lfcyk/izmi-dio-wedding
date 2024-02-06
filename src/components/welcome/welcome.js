@@ -86,7 +86,7 @@ export default function Welcome() {
                             </div>
                             <div className={geraniumFont.className}>
                                 <p className='w-80 mx-auto pt-3 px-3'>
-                                    The eldest son of Bpk. H. Eko Handayanto & Ibu. Hj. Tias Susanti, S.Pd.I
+                                    The eldest son of Bpk. H. Eko Handayanto & Ibu. Hj. Tias Susanti, S.Ag
                                 </p>
                             </div>
                             <div className={geraniumFont.className}>
