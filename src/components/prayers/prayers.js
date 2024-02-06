@@ -2,6 +2,10 @@ import Image from 'next/image'
 import styles from './styles.module.css'
 import localFont from 'next/font/local';
 import { motion } from 'framer-motion'
+import { useState } from 'react';
+import useSWR, { useSWRConfig } from 'swr';
+import { ClipLoader } from 'react-spinners';
+const fetcher = url => fetch(url).then(r => r.json())
 
 const DKFont = localFont({
 	src: './../../../src/fonts/DK Lemon Yellow Sun.otf',
@@ -14,6 +18,39 @@ const geraniumFont = localFont({
 })
 
 export default function Prayers() {
+    const { mutate } = useSWRConfig()
+
+    const [prayerInfo, setPrayerInfo] = useState({ "name": "", "wish": "" });
+    const [showLoader, setShowLoader] = useState(false);
+
+    const handleChange = (event) => {
+        setPrayerInfo({
+            "name": event.target.form[0].value,
+            "wish": event.target.form[1].value,
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        setShowLoader(true);
+        setTimeout(() => setShowLoader(false), 2000);
+
+        await fetch('/api/postWishes', {
+            method: 'POST',
+            body: JSON.stringify(prayerInfo),
+            headers: {
+            'content-type': 'application/json'
+            }
+        })
+        .then((response) => {
+            return {
+                text: response.text(),
+                isOk: response.ok,
+            }
+        })
+
+        await mutate(`/api/getWishes`);
+    }
+
     return (
         <>
             <div className={styles.imgContainer}>
@@ -40,9 +77,14 @@ export default function Prayers() {
                     </motion.div>
                     <form>
                         <div className={`flex flex-col p-3 max-w-96 mx-auto ${geraniumFont.className}`}>
-                            <input name="name" placeholder="Name" required className='mb-2'/>
-                            <textarea name="wishes" placeholder="Wishes"/>
-                            <button type="submit" className={styles.button}>Post Prayer</button>
+                            <input name="name" placeholder="Name" required className='mb-2' onChange={handleChange}/>
+                            <textarea name="wishes" placeholder="Wishes" onChange={handleChange}/>
+                            <button type="button" className={styles.button} onClick={handleSubmit}>
+                                {showLoader
+                                    ?   <ClipLoader color="#FFFFFF" size={10}/>
+                                    :   "Submit"
+                                }
+                                </button>
                         </div>
                     </form>
                 </div>

@@ -1,5 +1,7 @@
 import localFont from 'next/font/local';
 import styles from './styles.module.css'
+import { format } from 'date-fns';
+import { motion } from 'framer-motion'
 
 
 
@@ -13,12 +15,28 @@ const geraniumFont = localFont({
 	display: 'swap',
 })
 
-export default function Wishes() {
+export default function Wishes(props) {
+    const wishes = props.wishes?.toReversed();
+    console.log(wishes);
     return (
-        <div className={`${styles.card} m-7 mx-auto max-w-2xl`}>
-            <div className={`${geraniumFont.className} text-left px-3`}>from <span className="font-bold">Steven Gerard</span></div>
-            <div className={`${geraniumFont.className} text-left text-xs px-3`}>Monday, January 1st 2024</div>
-            <div className={`${geraniumFont.className} text-2xl text-center p-4`}>Happy wedding blablablablaba</div>
-        </div>
+        <>
+            {wishes?.map((pray) => {
+                return (
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ ease: "easeOut", duration: 2 }}
+                        >
+
+                        <div className={`${styles.card} m-7 mx-auto max-w-2xl`}>
+                            <div className={`${geraniumFont.className} text-left px-3`}>from <span className="font-bold">{pray.name}</span></div>
+                            <div className={`${geraniumFont.className} text-left text-xs px-3`}>{format(new Date(), "cccc', 'dd-MM-yyyy' 'HH:mm 'WIB")}</div>
+                            <div className={`${geraniumFont.className} text-2xl text-center p-4`}>{pray.wish}</div>
+                        </div>
+                    </motion.div>
+                )
+            })
+            }
+        </>
     )
 }
