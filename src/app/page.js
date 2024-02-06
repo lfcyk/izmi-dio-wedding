@@ -11,8 +11,7 @@ import Prayers from "@/components/prayers/prayers";
 import Countdown from "@/components/countdown/countdown";
 import ReactAudioPlayer from 'react-audio-player';
 import Wishes from "@/components/wishes/wishes";
-import useSWR from 'swr';
-const fetcher = url => fetch(url).then(r => r.json())
+
 import localFont from 'next/font/local';
 import Bank from "@/components/bank/bank";
 
@@ -23,14 +22,17 @@ const DKFont = localFont({
 
 export default function Home() {
 	const [open, setOpen] = useState(false);
+	const [data, setData] = useState("");
 	function handleOpen() {
 		setOpen(true);
 	}
 	
-    const { data, error } = useSWR(`/api/getWishes`, fetcher)
-	if(error) {
-        return "An Error has occured"
-    }
+	useEffect(() => {
+		fetch('/api/getWishes')
+		  .then(res => res.json())
+		  .then(data => setData(data))
+	}, [])
+
 	const wishes = data?.allPosts;
 	return (
 		<>	
