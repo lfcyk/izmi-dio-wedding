@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from './styles.module.css'
 import localFont from 'next/font/local';
+import { motion } from 'framer-motion'
 
 const DKFont = localFont({
 	src: './../../../src/fonts/DK Lemon Yellow Sun.otf',
@@ -28,11 +29,17 @@ export default function Collage() {
                         />
                 </div>
                 <div className={styles.container}>
-                    <div className="m-5 text-amber-900 max-w-72 mx-auto text-xl">
-                        <div className={DKFont.className}>
-                            "You're my violet in the sun, you're the chosen one" - Daniel Caesar.
-                        </div>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ ease: "easeOut", duration: 2 }}
+                        >
+                        <div className="m-5 text-amber-900 max-w-72 mx-auto text-xl">
+                            <div className={DKFont.className}>
+                                "You're my violet in the sun, you're the chosen one" - Daniel Caesar.
+                            </div>
+                        </div>    
+                    </motion.div>
                     <div className="h-48  grid grid-cols-4 gap-2 max-w-80 mx-auto">
                             <div className={styles.collageFrame}>
                                 <Image

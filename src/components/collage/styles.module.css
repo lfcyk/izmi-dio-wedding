@@ -11,10 +11,6 @@
     width: 100vw;
 }
 
-.flower {
-    /* transform: translateY(-10%); */
-}
-
 .collageFrame {
     position: relative;
     overflow: hidden;

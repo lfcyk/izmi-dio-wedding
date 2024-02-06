@@ -9,6 +9,9 @@ import Detail from "@/components/detail/detail";
 import Collage from "@/components/collage/collage";
 import Prayers from "@/components/prayers/prayers";
 import Countdown from "@/components/countdown/countdown";
+import ReactAudioPlayer from 'react-audio-player';
+import Wishes from "@/components/wishes/wishes";
+
 
 export default function Home() {
 	const [open, setOpen] = useState(false);
@@ -25,6 +28,12 @@ export default function Home() {
 					<Detail/>
 					<Collage/>
 					<Prayers/>
+					<Wishes/>
+					<ReactAudioPlayer
+						src="/Raef - You Are the One.mp3"
+						autoPlay
+						/>
+
 				</>
 			:
 				<>

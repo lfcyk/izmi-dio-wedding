@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from './styles.module.css'
 import localFont from 'next/font/local';
-
+import { motion } from 'framer-motion'
 
 const DKFont = localFont({
 	src: './../../../src/fonts/DK Lemon Yellow Sun.otf',
@@ -28,9 +28,16 @@ export default function Prayers() {
                         />
                 </div>
                 <div className={styles.container}>
-                    <div className={`text-2xl  mt-7 ${DKFont.className}`}>
-                        Leave Us Your Prayers
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ ease: "easeOut", duration: 2 }}
+                        >
+
+                        <div className={`text-2xl  mt-7 ${DKFont.className}`}>
+                            Leave Us Your Prayers
+                        </div>
+                    </motion.div>
                     <form>
                         <div className={`flex flex-col p-3 max-w-96 mx-auto ${geraniumFont.className}`}>
                             <input name="name" placeholder="Name" required className='mb-2'/>
@@ -38,11 +45,6 @@ export default function Prayers() {
                             <button type="submit" className={styles.button}>Post Prayer</button>
                         </div>
                     </form>
-                    <div className='m-4 mx-auto max-w-2xl'>
-                        <div className={`${geraniumFont.className} text-left px-3`}>from <span className="font-bold">Steven Gerard</span></div>
-                        <div className={`${geraniumFont.className} text-left text-xs px-3`}>Monday, January 1st 2024</div>
-                        <div className={`${geraniumFont.className} text-3xl text-center p-4`}>Happy wedding blablablablaba</div>
-                    </div>
                 </div>
             </div>
         </>

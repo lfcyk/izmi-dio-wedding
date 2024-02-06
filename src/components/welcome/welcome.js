@@ -2,6 +2,7 @@ import Image from 'next/image'
 import styles from './styles.module.css'
 import localFont from 'next/font/local';
 import { FaInstagram } from "react-icons/fa6";
+import { motion } from 'framer-motion';
 
 const geraniumFont = localFont({
 	src: './../../../src/fonts/Geranium.otf',
@@ -28,19 +29,40 @@ export default function Welcome() {
                         className='brightness-50'
                     />
                 <div className={styles.container}>
-                    <div className={styles.text}>
-                        <div className={DKFont.className}>
-                            <h1 className="pt-14 text-3xl pb-5">We are Tying the Knot</h1>
-                        </div>
-                        <div className={styles.dalil}>
-                            <div className={geraniumFont.className}>
-                                <p className="mt-5 text-xl mx-5">"and of His signs is that He created spouses from among yourselves for you to live with in tranquility : He ordained love and kindness between you. There truly are signs in this for those who reflect". </p>
-                                <p className="mt-2">Qur'an (30:21)</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='mt-14'>
 
+                    <div className={styles.text}>
+                        <motion.div
+                            initial={{ opacity: 0, y: 200 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ ease: "easeOut", duration: 2 }}
+                            >
+                            <div className={DKFont.className}>
+                                <h1 className="pt-14 text-3xl pb-5">We are Tying the Knot</h1>
+                            </div>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 100 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ ease: "easeOut", duration: 2 }}
+                            >
+
+                            <div className={styles.dalil}>
+                                <div className={geraniumFont.className}>
+                                    <p className="mt-5 text-xl mx-5">"and of His signs is that He created spouses from among yourselves for you to live with in tranquility : He ordained love and kindness between you. There truly are signs in this for those who reflect". </p>
+                                    <p className="mt-2">Qur'an (30:21)</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                        </div>
+                    
+                    <div className='mt-14'>
+                    <motion.div
+                            initial={{ opacity: 0, x: -200 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ ease: "easeOut", duration: 2 }}
+                            >
+
+                           
                         <Image
                                 src="/pictures/dio.jpg"
                                 height='240'
@@ -48,6 +70,14 @@ export default function Welcome() {
                                 alt="dio"
                                 className='m-auto'
                             />
+                    </motion.div>
+                    <motion.div
+                            initial={{ opacity: 0, y: -100 }}
+                            whileInView={{ opacity: 1, y: 0}}
+                            transition={{ ease: "easeOut", duration: 2 }}
+                            >
+
+                            
                         <div className={styles.text}>
                             <div className={DKFont.className}>
                                 <h1 className='text-xl'>
@@ -68,7 +98,7 @@ export default function Welcome() {
                                 </div>
                             </div>
                         </div>
-
+                        </motion.div>
                         <div className='my-9 text-3xl'>
                             <div className={styles.text}>
                                 <div className={geraniumFont.className}>
@@ -76,14 +106,24 @@ export default function Welcome() {
                                 </div>
                             </div>
                         </div>
-                        <Image
-                                src="/pictures/izmi.jpg"
-                                height='240'
-                                width='240'
-                                alt="dio"
-                                className='m-auto'
-                            />
-                        
+                        <motion.div
+                            initial={{ opacity: 0, x: 200 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ ease: "easeOut", duration: 2 }}
+                            >
+                            <Image
+                                    src="/pictures/izmi.jpg"
+                                    height='240'
+                                    width='240'
+                                    alt="dio"
+                                    className='m-auto'
+                                />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 200 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ ease: "easeOut", duration: 2 }}
+                            >
                         <div className={styles.text}>
                             <div className={DKFont.className}>
                                 <h1 className='text-xl'>
@@ -95,7 +135,7 @@ export default function Welcome() {
                                     The second daughter of Bpk. H. Paturakhman & Ibu. Hj. N.E. Srimulyati, S.Pd. 
                                 </p>
                             </div>
-                            <div className={geraniumFont.className}>
+                            <div className={`${geraniumFont.className} pb-24`}>
                                 <div className='flex flex-row items-center justify-center gap-2'>
                                     <FaInstagram /> 
                                     <div>
@@ -104,6 +144,7 @@ export default function Welcome() {
                                 </div>
                             </div>
                         </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>
