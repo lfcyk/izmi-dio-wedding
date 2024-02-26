@@ -28,7 +28,7 @@ export default function Home() {
 	}
 	
 	useEffect(() => {
-		fetch('/api/getWishes')
+		fetch('/api/getWishes', { cache: 'no-store' })
 		  .then(res => res.json())
 		  .then(data => setData(data))
 	}, [])
